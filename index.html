@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fling the Ball</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				overflow: hidden;
+			}
+			#scoreContainer {
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color: #eee;
+				font-family: "Arial", sans-serif;
+				font-size: 2em;
+				padding: 10px 20px;
+				border-bottom-left-radius: 5px;
+				text-align: right;
+			}
+			#score, #highScore {
+				font-family: "Consolas", monospace;
+			}
+			#overlay {
+				position: fixed;
+				z-index: 5;
+				width: 100%;
+				height: 100%;
+				background: #ccc;
+				top: 0;
+				left: 0;
+				display: none;
+				text-align: center;
+				padding-top: 200px;
+				background-color: #fff;
+				font-family: "Arial", sans-serif;
+				font-size: 3em;
+				line-height: 1.5em;
+			}
+			.exclamation {
+				text-transform: uppercase;
+			}
+			#tostart {
+				color: #333;
+			}
+			#grass {
+				width: 100%;
+				height: 100px;
+				background-color: green;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+			}
+			#ball {
+				height: 120px;
+				width: 120px;
+				border-radius: 50%;
+				background-color: blue;
+				position: fixed;
+				bottom: 100px;
+				left: 300px;
+			}
+			#gameOver {
+				display: none;
+				position: fixed;
+				z-index: 7;
+				width: 100%;
+				height: 100%;
+				background: #ccc;
+				top: 0;
+				left: 0;
+				text-align: center;
+				padding-top: 150px;
+				background-color: #fff;
+				font-family: "Arial", sans-serif;
+				font-size: 3em;
+				line-height: 2.2em;
+			}
+			#gameOver span {
+				font-family: "Consolas", monospace;
+			}
+			#gameOver h3 {
+				font-weight: normal;
+				font-size: 0.9em;
+				animation: blink 0.8s infinite alternate;
+			}
+			@keyframes blink {
+				from {opacity: 0.5;}
+				to {opacity: 1;}
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="game" width="500" height="1000">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+		<div id="overlay">
+			Fling the Ball
+			<br/>
+			<span class="exclamation">Get the high score!</span>
+			<br/>
+			<span id="tostart">Right click to start</span>
+			<div id="ball"></div>
+			<div id="grass"></div>
+		</div>
+		
+		<div id="gameOver">
+			<h1>Score: <span id="gameOverScore">23.171</span></h1>
+			<h2>High score: <span id="gameOverHighScore">2873.421</span></h2>
+			<h3>Click anywhere to play again</h3>
+		</div>
+
+		<div id="scoreContainer">
+			Your score: <span id="score">0</span> ft.
+			<br/>
+			Your high score: <span id="highScore">0</span> ft.
+		</div>
+
+		<script src="main.js"></script>
+
+	</body>
+</html>
